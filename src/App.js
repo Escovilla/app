@@ -15,18 +15,19 @@ class App extends Component {
 
   render() {
     const nani = () => {
-      console.log("im in");
       this.setState({
+        text: !text,
         red: !red,
       });
     };
     const { characters } = this.state;
+    const { text = false } = this.state;
     const { red = false } = this.state;
     return (
       <div>
         <div className={red ? "red " : ""}>
           <div className="container col-md-5">
-            <label htmlFor="Dark Mode">Dark Mode</label>
+            <label>{text ? "Light Mode " : "Dark Mode"}</label>
             <button
               className="btn btn-xs btn-primary iswagi"
               onClick={nani}
@@ -40,7 +41,12 @@ class App extends Component {
       </div>
     );
   }
-
+  changeText = (text) => {
+    console.log("hi");
+    this.setState({
+      text: "hihihih",
+    });
+  };
   removeCharacter = (index) => {
     const { characters } = this.state;
 
